@@ -1,7 +1,7 @@
 "use client";
 import { FC } from "react";
 import { useLocale, useLocaleCookie } from "next-intlayer";
-import { getLocalizedUrl, getLocaleName } from "intlayer";
+import { getLocalizedUrl } from "intlayer";
 import Link from "next/link";
 import { clsx } from "clsx";
 
@@ -11,7 +11,7 @@ export const LanguageSwitcher: FC = () => {
 
   return (
     <div className="flex items-center bg-gray-300 rounded-xl w-full max-w-[136px]">
-      {[...availableLocales].reverse().map((localeItem) => (
+      {availableLocales.map((localeItem) => (
         <Link
           key={localeItem}
           href={getLocalizedUrl(pathWithoutLocale, localeItem)}
