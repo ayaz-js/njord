@@ -1,0 +1,11 @@
+export { Logo } from "./Logo";
+export { Compass } from "./Compass";
+export { Patterns } from "./Patterns";
+export { CompassBlack } from "./CompassBlack";
+export { LinesTop } from "./LinesTop";
+export { Box } from "./Box";
+export { Settings } from "./Settings";
+export { House } from "./House";
+export { Shiping } from "./Shiping";
+export { MenuIcon } from "./MenuIcon";
+export { ArrowRight } from "./ArrowRight";
