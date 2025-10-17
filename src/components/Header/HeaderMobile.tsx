@@ -3,7 +3,6 @@ import { FC, useState } from "react";
 import { HeaderProps } from "@/components/Header/types";
 import Link from "next/link";
 import { Logo, MenuIcon } from "@/components/icons";
-import { Button } from "@/components/ui/button";
 import { push as Menu } from "react-burger-menu";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
