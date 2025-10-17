@@ -25,18 +25,18 @@ const HeaderMobile: FC<HeaderProps> = ({ headerMenuItems }) => {
         pageWrapId="page-wrap"
         outerContainerId="outer-container"
       >
-        <div className="!flex flex-col justify-between h-full">
+        <div className="!flex flex-col h-full">
           <Link href="/">
             <Logo className="max-w-44 w-full" />
           </Link>
 
-          <ul className="!flex flex-col !gap-8">
+          <ul className="!flex flex-col gap-4 xl:!gap-8 mt-8">
             {headerMenuItems.map((item) => (
               <li key={item.label}>
                 <Link
                   onClick={handleClose}
                   id={item.link}
-                  className="text-brownTextColor menu-item"
+                  className="text-brownTextColor menu-item text-sm xl:text-base"
                   href={item.link || ""}
                 >
                   {item.label}
@@ -45,16 +45,16 @@ const HeaderMobile: FC<HeaderProps> = ({ headerMenuItems }) => {
             ))}
           </ul>
 
-          <LanguageSwitcher />
+          <LanguageSwitcher className="mt-auto" />
         </div>
       </Menu>
       <div className="flex items-center justify-between p-4">
         <Link href="/">
-          <Logo className="max-w-52 w-full" />
+          <Logo className="max-w-44 w-full" />
         </Link>
-        <Button variant="ghost" size="icon" onClick={handleOpen}>
-          <MenuIcon className="" />
-        </Button>
+        <button onClick={handleOpen}>
+          <MenuIcon className="w-6" />
+        </button>
       </div>
     </header>
   );
