@@ -38,7 +38,7 @@ export const RadioButtons: FC<Props> = ({
       )}
       <div className="flex gap-4 xl:gap-8 mt-1">
         {radioButtons.map((radio) => (
-          <div key={radio.id} className="flex items-center space-x-2">
+          <div key={radio.id} className="flex items-center gap-1">
             <RadioGroupItem value={radio.value} id={radio.id} />
             <Label
               htmlFor={radio.htmlFor}

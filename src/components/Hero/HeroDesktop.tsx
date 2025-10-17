@@ -9,12 +9,12 @@ export const HeroDesktop: FC = () => {
       <div className="relative max-w-baseWidth w-full mx-auto flex justify-center box-border">
         <Image
           src="/images/hero-desktop.png"
-          width={1800}
-          height={912}
+          width={1366}
+          height={840}
           alt=""
-          className="!w-full object-contain rounded-3xl"
+          className="rounded-3xl"
         />
-        <div className="hidden lg:block absolute top-[14%] left-[6%]">
+        <div className="hidden lg:block absolute top-[8%] left-[4%]">
           <p className="text-4xl text-white max-w-[584px] w-full">
             Производители, контроль партии, брендирование —
           </p>
@@ -46,7 +46,7 @@ export const HeroDesktop: FC = () => {
             </p>
           </div>
           <div className="mt-6">
-            <FormModal />
+            <FormModal className="bg-white !max-w-2xl !w-full !text-center !text-black" />
           </div>
         </div>
       </div>

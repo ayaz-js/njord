@@ -18,10 +18,11 @@ export const LanguageSwitcher: FC = () => {
           hrefLang={localeItem}
           onClick={() => setLocaleCookie(localeItem)}
           className={clsx(
-            "flex items-center justify-center w-full rounded-xl h-10 transition-colors text-sm font-medium",
+            "flex items-center justify-center w-full h-10 transition-colors text-sm font-medium",
             locale === localeItem
               ? "bg-blueBg text-white"
               : "hover:bg-blueBg hover:text-white",
+              localeItem === "en" ? "rounded-tr-xl rounded-br-xl" : "rounded-tl-xl rounded-bl-xl"
           )}
         >
           <span>{localeItem.toUpperCase()}</span>

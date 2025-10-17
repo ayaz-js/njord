@@ -1,5 +1,5 @@
-"use client";
-import React, { FC, useState } from "react";
+"use client"
+import React, { FC } from "react";
 import {
   Dialog,
   DialogContent,
@@ -12,78 +12,27 @@ import { RadioButtons } from "@/components/RadioButtons";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import { toast } from "sonner";
+import {clsx} from "clsx";
+import { useSubmit } from "@/hooks/useSubmit";
 
-export const FormModal: FC = () => {
-  const BASE_URL =
-    "https://script.google.com/macros/s/AKfycbxNhL4YclZI3auzd3sfDxV7dk_GZ9hH97aeP9Jo9OXg3H7kqnsRwZyfGe4nf0tjLaxt/exec";
+interface Props {
+  className?: string
+}
 
-  const [isLoading, setIsLoading] = useState(false);
+export const FormModal: FC<Props> = ({ className }) => {
 
-  const [form, setForm] = useState({
-    name: "",
-    company: "",
-    email: "",
-    messenger: "",
-    product: "",
-    comment: "",
-    experience: "",
-    annualTurnover: "",
-  });
-
-  const resetForm = () => {
-    setForm({
-      name: "",
-      company: "",
-      email: "",
-      messenger: "",
-      product: "",
-      comment: "",
-      experience: "",
-      annualTurnover: "",
-    });
-  };
-
-  const onChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setForm((state) => ({ ...state, [event.target.name]: event.target.value }));
-  };
-
-  const onRadioChange = (name: string, value: string) => {
-    setForm((state) => ({ ...state, [name]: value }));
-  };
-
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsLoading(true);
-
-    const _formData = new FormData();
-
-    _formData.append("Имя", form.name);
-    _formData.append("Компания", form.company);
-    _formData.append("Почта", form.email);
-    _formData.append("Месседжер", form.messenger);
-    _formData.append("Товар", form.product);
-    _formData.append("Дополнительные вопросы", form.comment);
-    _formData.append("Опыт работы с Китаем", form.experience);
-    _formData.append("Годовой оборот вашей компании", form.annualTurnover);
-
-    fetch(BASE_URL, {
-      method: "POST",
-      body: _formData,
-    })
-      .then(() => resetForm())
-      .then(() => toast.success("Event has been created"))
-      .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
-  };
+  const {
+    form,
+    isLoading,
+    onChange,
+    onRadioChange,
+    onSubmit
+  } = useSubmit();
 
   return (
     <Dialog>
       <DialogTrigger
-        className="max-w-wull xl:max-w-[534px] w-full
-             !p-4 lg:!p-6 bg-blueBg text-xs lg:text-xl text-center xl:text-left !text-wrap text-white rounded-xl"
+        className={clsx("max-w-full xl:max-w-[534px] w-full !p-4 lg:!p-6 bg-blueBg text-xs lg:text-xl text-center xl:text-left !text-wrap text-white rounded-xl", className)}
       >
         Оставить заявку и получить предварительный просчёт закупки
       </DialogTrigger>
