@@ -5,7 +5,7 @@ import { FooterDesktop } from "@/components/Footer/FooterDesktop";
 import { FooterMobile } from "@/components/Footer/FooterMobile";
 
 export const Footer: FC = () => {
-  const matches = useMediaQuery("(max-width: 568px)");
+  const matches = useMediaQuery("(max-width: 768px)");
 
   return (
     <>

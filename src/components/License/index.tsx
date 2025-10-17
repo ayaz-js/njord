@@ -5,7 +5,7 @@ import { DesktopLicense } from "@/components/License/DesktopLicense";
 import { MobileLicense } from "@/components/License/MobileLicense";
 
 export const License: FC = () => {
-  const matches = useMediaQuery("(max-width: 568px)");
+  const matches = useMediaQuery("(max-width: 768px)");
 
   return (
     <>
