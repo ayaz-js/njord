@@ -26,12 +26,15 @@
   src: url("/fonts/Bounded/Bounded-ExtraLight.ttf");
 }
 
-body {
-  font-family: "Bounded", sans-serif;
+html {
   scroll-behavior: smooth;
 }
 
 
+body {
+  font-family: "Bounded", sans-serif;
+  scroll-behavior: smooth;
+}
 
 @layer base {
   :root {
