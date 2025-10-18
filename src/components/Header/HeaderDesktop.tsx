@@ -8,7 +8,7 @@ const HeaderDesktop: FC<HeaderProps> = ({ headerMenuItems }) => {
   return (
     <header className="hidden lg:block pt-12">
       <div className="max-w-baseWidth w-full mx-auto flex justify-between items-center gap-8 xl:gap-12 px-4 xl:px-0">
-        <Link href="/">
+        <Link href="/" aria-label="Go to homepage">
           <Logo className="max-w-32 w-full xl:max-w-full xl:w-full" />
         </Link>
         <ul className="flex gap-8 lg:gap-12">

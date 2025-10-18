@@ -48,10 +48,10 @@ const HeaderMobile: FC<HeaderProps> = ({ headerMenuItems }) => {
         </div>
       </Menu>
       <div className="flex items-center justify-between p-4">
-        <Link href="/">
+        <Link href="/" aria-label="Go to homepage">
           <Logo className="max-w-44 w-full" />
         </Link>
-        <button onClick={handleOpen}>
+        <button onClick={handleOpen} role="button" aria-label="Menu button">
           <MenuIcon className="w-6" />
         </button>
       </div>
