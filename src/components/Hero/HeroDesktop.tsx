@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Compass } from "@/components/icons";
 import { FormModal } from "@/components/FormModal";
 
-export const HeroDesktop: FC = () => {
+const HeroDesktop: FC = () => {
   return (
     <section className="py-12">
       <div className="relative max-w-baseWidth w-full mx-auto flex justify-center box-border">
@@ -53,3 +53,5 @@ export const HeroDesktop: FC = () => {
     </section>
   );
 };
+
+export default HeroDesktop;

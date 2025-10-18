@@ -66,33 +66,6 @@ export const FeaturesDesktop: FC<FeaturesProps> = ({ featuresData }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/*<div className="grid grid-cols-3 gap-6 absolute bottom-0 left-0 z-10 p-12">*/}
-        {/*  {featuresData.map((item) => (*/}
-        {/*    <div*/}
-        {/*      key={item.sum}*/}
-        {/*      className="flex flex-col justify-between backdrop-blur-xl bg-white/10 rounded-2xl"*/}
-        {/*    >*/}
-        {/*      <div className="p-8">*/}
-        {/*        <h2 className="text-white text-2xl flex items-center gap-1 h-16">*/}
-        {/*          {item.title}*/}
-        {/*          <span className="text-4xl text-skyblueTextColor">*/}
-        {/*            {item.sum}*/}
-        {/*          </span>*/}
-        {/*        </h2>*/}
-
-        {/*        <div className="mt-20">{item.icon}</div>*/}
-
-        {/*        <div className="mt-8">*/}
-        {/*          <p className="text-white">*/}
-        {/*            {item.text}*/}
-        {/*            <span className="font-light">{item.subtext}</span>*/}
-        {/*          </p>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*  ))}*/}
-        {/*</div>*/}
       </div>
     </section>
   );

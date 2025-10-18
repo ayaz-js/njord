@@ -1,8 +1,18 @@
 "use client";
 import { FC } from "react";
-import { HeroDesktop } from "@/components/Hero/HeroDesktop";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { HeroMobile } from "@/components/Hero/HeroMobile";
+import { HeroSkeleton } from "@/components/Skeletons/HeroSkeleton";
+import dynamic from "next/dynamic";
+
+const HeroDesktop = dynamic(() => import("@/components/Hero/HeroDesktop"), {
+  ssr: false,
+  loading: () => <HeroSkeleton />,
+});
+
+const HeroMobile = dynamic(() => import("@/components/Hero/HeroMobile"), {
+  ssr: false,
+  loading: () => <HeroSkeleton />,
+});
 
 export const Hero: FC = () => {
   const matches = useMediaQuery("(max-width: 568px)");

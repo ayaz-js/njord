@@ -4,7 +4,7 @@ import { CompassBlack } from "@/components/icons";
 import Image from "next/image";
 import { FormModal } from "@/components/FormModal";
 
-export const HeroMobile: FC = () => {
+const HeroMobile: FC = () => {
   return (
     <section>
       <div className="px-4">
@@ -60,3 +60,5 @@ export const HeroMobile: FC = () => {
     </section>
   );
 };
+
+export default HeroMobile;
