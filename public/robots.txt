@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: /*?*
+
+Crawl-delay: 10
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
