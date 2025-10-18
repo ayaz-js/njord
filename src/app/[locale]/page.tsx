@@ -9,6 +9,20 @@ import { Footer } from "@/components/Footer";
 import { type NextPageIntlayer, IntlayerClientProvider } from "next-intlayer";
 import { IntlayerServerProvider } from "next-intlayer/server";
 
+export const metadata = {
+  title: "Главная — Njord",
+  description: "Добро пожаловать на Njord — ваш источник вдохновения.",
+  keywords: ["Njord", "Next.js", "инновации"],
+  openGraph: {
+    title: "Njord — инновационный проект",
+    description: "Исследуй новые идеи с Njord.",
+    url: "https://njord-five.vercel.app/",
+    siteName: "Njord",
+    locale: "ru_RU",
+    type: "website",
+  },
+};
+
 const Home: NextPageIntlayer = async ({ params }) => {
   const { locale } = await params;
 
