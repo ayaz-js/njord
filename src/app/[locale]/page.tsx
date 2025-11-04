@@ -24,7 +24,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://njord-five.vercel.app/images/hero-desktop.png",
+        url: "https://njord-five.vercel.app/images/open-graph.png",
         width: 1200,
         height: 630,
         alt: "Njord — ваши люди в Китае",
