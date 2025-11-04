@@ -33,6 +33,7 @@ export const MobileLicense: FC = () => {
         <Button variant="secondary" size="lg" className="mt-3 w-full p-0">
           <Link
             href="/license.pdf"
+            target="_blank"
             className="w-full h-full flex items-center justify-center text-xs gap-2"
           >
             {content.openLicense}
