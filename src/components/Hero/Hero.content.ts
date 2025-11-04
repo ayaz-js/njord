@@ -24,12 +24,12 @@ const HeroContent = {
       en: "Working with us",
     }),
     workingWithUsEnd: t({
-      ru: "Китай работает на вас.",
-      en: "means China works for you.",
+      ru: "Китай работает на вас",
+      en: "means China works for you",
     }),
     weAreYourPurchasing: t({
-      ru: "Мы — ваш отдел закупок в Китае, только лучше.",
-      en: "We are your purchasing department in China — only better.",
+      ru: "Мы — ваш отдел закупок в Китае, только лучше",
+      en: "We are your purchasing department in China — only better",
     }),
     weAnalyzeTheMarket: t({
       ru: "Проводим аналитику рынка, выстраиваем стратегию закупок под ваш бизнес и делаем предварительный просчёт. Ищем оптимальные предложения от реальных производителей, проверяем фабрики и контролируем каждую партию. Перед отправкой лично инспектируем товар, чтобы исключить брак.",
