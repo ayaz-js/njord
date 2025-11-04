@@ -34,7 +34,8 @@ const HeroMobile: FC = () => {
 
           <div className="absolute bottom-12 left-1/2 -translate-x-1/2 backdrop-blur-sm rounded-tl-3xl rounded-br-3xl bg-white/10 flex flex-col gap-4 py-4 max-w-72 w-full">
             <p className="flex flex-col items-center justify-center text-white text-center">
-              Работая с нами, <span>Китай работает на вас</span>
+              {content.workingWithUsPrefix}{" "}
+              <span>{content.workingWithUsEnd}</span>
             </p>
           </div>
         </div>

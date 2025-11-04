@@ -19,6 +19,14 @@ const HeroContent = {
       ru: "Работая с нами, Китай работает на вас",
       en: "Working with us means China works for you",
     }),
+    workingWithUsPrefix: t({
+      ru: "Работая с нами",
+      en: "Working with us",
+    }),
+    workingWithUsEnd: t({
+      ru: "Китай работает на вас.",
+      en: "means China works for you.",
+    }),
     weAreYourPurchasing: t({
       ru: "Мы — ваш отдел закупок в Китае, только лучше.",
       en: "We are your purchasing department in China — only better.",
