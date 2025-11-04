@@ -1,11 +1,12 @@
 import React from "react";
+import { IntlayerNode } from "next-intlayer";
 
 export interface Feature {
-  title: string;
+  title: IntlayerNode<string>;
   sum: string;
   icon: React.ReactNode;
-  text: string;
-  subtext: string;
+  text: IntlayerNode<string>;
+  subtext: IntlayerNode<string>;
 }
 
 export interface FeaturesProps {

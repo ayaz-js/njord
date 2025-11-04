@@ -3,20 +3,23 @@ import { FC } from "react";
 import { CompassBlack } from "@/components/icons";
 import Image from "next/image";
 import { FormModal } from "@/components/FormModal";
+import { useIntlayer } from "next-intlayer";
 
 const HeroMobile: FC = () => {
+  const content = useIntlayer("hero");
+
   return (
     <section>
       <div className="px-4">
         <div className="flex flex-col gap-2">
-          <h1>Производители, контроль партии, брендирование —</h1>
+          <h1>{content.title}</h1>
           <div className="flex items-center gap-2">
             <CompassBlack />
 
-            <p className="font-shanghai text-3xl">Весь китай</p>
+            <p className="font-shanghai text-3xl">{content.allOfChina}</p>
           </div>
           <p className="text-sm text-blueTextColor font-light">
-            через нашу экспертную команду
+            {content.throughOurExpertTeam}
           </p>
         </div>
 
@@ -38,18 +41,13 @@ const HeroMobile: FC = () => {
 
         <div className="flex flex-col gap-3 mt-6">
           <p className="text-xs text-blueTextColor font-light">
-            Мы — ваш отдел закупок в Китае, только лучше.
+            {content.weAreYourPurchasing}
           </p>
           <p className="text-xs text-blueTextColor font-light">
-            Проводим аналитику рынка, выстраиваем стратегию закупок под ваш
-            бизнес и делаем предварительный просчёт. Ищем оптимальные
-            предложения от реальных производителей, проверяем фабрики и
-            контролируем каждую партию. Перед отправкой лично инспектируем
-            товар, чтобы исключить брак.
+            {content.weAnalyzeTheMarket}
           </p>
           <p className="text-xs text-blueTextColor font-light">
-            Тем самым сокращаем издержки, повышаем качество продукции и улучшаем
-            имидж вашего бренда, усиливая его конкурентоспособность на рынке.
+            {content.thisWay}
           </p>
         </div>
 

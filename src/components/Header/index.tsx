@@ -3,6 +3,7 @@ import { FC } from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import dynamic from "next/dynamic";
 import { HeaderSkeleton } from "@/components/Skeletons";
+import { useIntlayer } from "next-intlayer";
 
 const HeaderDesktop = dynamic(
   () => import("@/components/Header/HeaderDesktop"),
@@ -18,27 +19,28 @@ const HeaderMobile = dynamic(() => import("@/components/Header/HeaderMobile"), {
 });
 
 export const Header: FC = () => {
+  const content = useIntlayer("header");
   const matches = useMediaQuery("(max-width: 1025px)");
 
   const headerMenuItems = [
     {
-      label: "О компании",
+      label: content.aboutUs,
       link: "#about-us",
     },
     {
-      label: "Как мы работаем",
+      label: content.howWeWork,
       link: "#features",
     },
     {
-      label: "Наши партнёры",
+      label: content.ourPartners,
       link: "#partners",
     },
     {
-      label: "Видео",
+      label: content.video,
       link: "#",
     },
     {
-      label: "Контакты",
+      label: content.contacts,
       link: "#contacts",
     },
   ];

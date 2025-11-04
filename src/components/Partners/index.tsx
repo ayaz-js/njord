@@ -1,8 +1,12 @@
+"use client";
 import { FC } from "react";
 import Image from "next/image";
 import { FormModal } from "@/components/FormModal";
+import { useIntlayer } from "next-intlayer";
 
 export const Partners: FC = () => {
+  const content = useIntlayer("partners");
+
   const logoCount = 29;
   const logos = Array.from({ length: logoCount }, (_, i) => i + 1);
 
@@ -11,16 +15,12 @@ export const Partners: FC = () => {
       <div className="max-w-baseWidth w-full mx-auto px-4 xl:px-0">
         <div>
           <h2 className="text-xl lg:text-5xl text-blueTextColor flex flex-col">
-            Наши партнёры <span>производят для лидеров рынка</span>
+            {content.titlePrefix}
+            <span>{content.title}</span>
           </h2>
           <p className="mt-8 text-brownTextColor font-light">
-            Фабрики, с которыми мы сотрудничаем, работают с крупнейшими мировыми
-            брендами в сфере моды, техники, FMCG, авто и ритейла. Это означает,
-            что вы получаете доступ к производственным мощностям с высочайшими
-            стандартами качества, проверенными глобальным рынком.{" "}
-            <span className="font-bold">
-              Среди брендов, для которых они производят:
-            </span>
+            {content.subtitle}{" "}
+            <span className="font-bold">{content.brandsInclude}</span>
           </p>
         </div>
 
@@ -42,9 +42,7 @@ export const Partners: FC = () => {
 
         <div className="flex flex-col xl:flex-row gap-4 md:gap-6 items-center justify-between mt-6 lg:mt-16">
           <p className="max-w-full xl:max-w-3xl text-xs lg:text-2xl font-light text-brownTextColor">
-            NJORD открывает доступ к этим же производственным мощностям — только
-            с вашей торговой маркой, вашими условиями и полным контролем со
-            стороны нашей команды.
+            {content.givesYouAccess}
           </p>
 
           <FormModal />

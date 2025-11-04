@@ -31,7 +31,7 @@ const HeaderMobile: FC<HeaderProps> = ({ headerMenuItems }) => {
 
           <ul className="!flex flex-col gap-4 xl:!gap-8 mt-8">
             {headerMenuItems.map((item) => (
-              <li key={item.label}>
+              <li key={item.link}>
                 <Link
                   onClick={handleClose}
                   id={item.link}

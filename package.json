@@ -36,6 +36,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@intlayer/swc": "^6.1.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-burger-menu": "^2.8.7",

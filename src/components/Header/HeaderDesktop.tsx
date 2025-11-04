@@ -14,7 +14,7 @@ const HeaderDesktop: FC<HeaderProps> = ({ headerMenuItems }) => {
         <ul className="flex gap-8 lg:gap-12">
           {headerMenuItems.map((item) => (
             <li
-              key={item.label}
+              key={item.link}
               className="text-brownTextColor text-xs xl:text-base"
             >
               <Link href={item.link || ""}>{item.label}</Link>

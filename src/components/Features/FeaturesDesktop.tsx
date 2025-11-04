@@ -1,28 +1,28 @@
 import { FC } from "react";
 import { Box } from "@/components/icons";
 import { FeaturesProps } from "@/components/Features/types";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
+import { useIntlayer } from "next-intlayer";
 
 export const FeaturesDesktop: FC<FeaturesProps> = ({ featuresData }) => {
+  const content = useIntlayer("feature");
+
   return (
     <section className="pt-40" id="features">
       <div className="flex flex-col justify-between lg:justify-stretch max-w-baseWidth rounded-3xl w-full mx-auto bg-[url('/images/work-bg.png')] bg-cover min-h-min h-full">
         <div className="p-12">
           <h2 className="text-[50px] text-white flex flex-col">
-            Как мы
+            {content.titlePrefix}
             <span className="font-shanghai flex items-center gap-2">
               <Box />
-              работаем
+              {content.work}
             </span>
           </h2>
           <div className="max-w-[600px] w-full mt-6">
-            <p className="text-white">Полностью берём Китай на себя.</p>
+            <p className="text-white">{content.weTakeFullControl}</p>
             <p className="font-light text-white">
-              От стратегии и переговоров — до проверки товара и доставки. Без
-              посредников. Без рисков. Только результат.
+              {content.fromStrategyAndNegotiations}
             </p>
           </div>
         </div>

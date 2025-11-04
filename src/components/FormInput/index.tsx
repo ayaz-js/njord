@@ -1,15 +1,25 @@
 import React, { FC } from "react";
 import { Input } from "@/components/ui/input";
+import { IntlayerNode } from "next-intlayer";
 
 interface Props {
-  title: string;
-  text: string;
+  title: IntlayerNode<string>;
+  text: IntlayerNode<string>;
   type: string;
-  placeholder: string;
+  placeholder: IntlayerNode<string>;
   required?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   value?: string;
   name?: string;
+}
+
+function toStringNode(node: IntlayerNode<string>): string {
+  if (typeof node === "string") return node;
+
+  if (typeof (node as { value?: unknown }).value === "string") {
+    return (node as { value: string }).value;
+  }
+  return String(node);
 }
 
 export const FormInput: FC<Props> = ({
@@ -38,7 +48,7 @@ export const FormInput: FC<Props> = ({
         value={value}
         onChange={onChange}
         required={required}
-        placeholder={placeholder}
+        placeholder={toStringNode(placeholder)}
         className="w-full border rounded-lg h-10 text-black placeholder:font-light placeholder:text-xs xl:placeholder:text-sm"
       />
     </div>

@@ -11,11 +11,13 @@ import { IntlayerServerProvider } from "next-intlayer/server";
 
 export const metadata = {
   title: "Главная — Njord",
-  description: "Добро пожаловать на Njord — ваш источник вдохновения.",
-  keywords: ["Njord", "Next.js", "инновации"],
+  description:
+    "Добро пожаловать на Njord - работая с нами, Китай работает на вас",
+  keywords: ["Njord"],
   openGraph: {
-    title: "Njord — инновационный проект",
-    description: "Исследуй новые идеи с Njord.",
+    title: "Njord — Мы — ваши люди в Китае.",
+    description:
+      "Независимые представители, которые заменят вам отдел закупок.",
     url: "https://njord-five.vercel.app/",
     siteName: "Njord",
     locale: "ru_RU",

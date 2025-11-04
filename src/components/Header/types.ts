@@ -1,6 +1,8 @@
+import { IntlayerNode } from "next-intlayer";
+
 export interface HeaderProps {
   headerMenuItems: {
-    label: string;
+    label: IntlayerNode<string>;
     link?: string;
   }[];
   handleOnOpen?: () => void;

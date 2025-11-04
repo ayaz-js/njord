@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { FC } from "react";
 import {
   Dialog,
@@ -12,38 +12,43 @@ import { RadioButtons } from "@/components/RadioButtons";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import {clsx} from "clsx";
+import { clsx } from "clsx";
 import { useSubmit } from "@/hooks/useSubmit";
+import { useIntlayer, useLocale } from "next-intlayer";
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const FormModal: FC<Props> = ({ className }) => {
+  const content = useIntlayer("form");
 
-  const {
-    form,
-    isLoading,
-    onChange,
-    onRadioChange,
-    onSubmit
-  } = useSubmit();
+  const { locale } = useLocale();
+
+  const commentPlaceholderLocalize =
+    locale === "en" ? "Additional questions" : "Дополнительные вопросы";
+
+  console.log(locale);
+
+  const { form, isLoading, onChange, onRadioChange, onSubmit } = useSubmit();
 
   return (
     <Dialog>
       <DialogTrigger
-        className={clsx("max-w-full xl:max-w-[534px] w-full !p-4 lg:!p-6 bg-blueBg text-xs lg:text-xl text-center xl:text-left !text-wrap text-white rounded-xl", className)}
+        className={clsx(
+          "max-w-full xl:max-w-[534px] w-full !p-3 bg-blueBg text-xs lg:text-xl text-center text-white rounded-xl",
+          className,
+        )}
       >
-        Оставить заявку и получить предварительный просчёт закупки
+        {content.submitRequest}
       </DialogTrigger>
       <DialogContent className="max-w-[90%] xl:max-w-[92%] w-full h-[90%] overflow-auto">
         <DialogHeader>
           <DialogTitle>
             <div className="flex flex-col gap-3 xl:gap-5">
-              <p className="text-xl xl:text-4xl self-start">Связь с нами</p>
+              <p className="text-xl xl:text-4xl self-start">{content.title}</p>
               <p className="text-xs xl:text-sm !text-brownTextColor font-extralight max-w-[418px] w-full text-left">
-                (Заполните короткую форму ниже, чтобы мы могли быстро оценить
-                ваш проект)
+                {content.subtitle}
               </p>
             </div>
 
@@ -55,10 +60,10 @@ export const FormModal: FC<Props> = ({ className }) => {
                 <FormInput
                   value={form.name}
                   required
-                  title="Ваше имя, город и страна (обязательно)"
-                  text="Чтобы мы знали, как к вам обращаться и с какой страны идёт запрос."
+                  title={content.inputs.name}
+                  text={content.inputs.nameLabel}
                   type="text"
-                  placeholder="Имя"
+                  placeholder={content.inputs.namePlaceholder}
                   name="name"
                   onChange={onChange}
                 />
@@ -66,10 +71,10 @@ export const FormModal: FC<Props> = ({ className }) => {
                 <FormInput
                   value={form.company}
                   required
-                  title="Название вашей компании (обязательно)"
-                  text="Если вы представляете бизнес — укажите также свою должность."
+                  title={content.inputs.company}
+                  text={content.inputs.companyLabel}
                   type="text"
-                  placeholder="Компания"
+                  placeholder={content.inputs.companyPlaceholder}
                   name="company"
                   onChange={onChange}
                 />
@@ -77,10 +82,10 @@ export const FormModal: FC<Props> = ({ className }) => {
                 <FormInput
                   value={form.email}
                   required
-                  title="E-mail (обязательно)"
-                  text="Для отправки коммерческого предложения и связи."
+                  title={content.inputs.email}
+                  text={content.inputs.emailLabel}
                   type="email"
-                  placeholder="Эл.почта"
+                  placeholder={content.inputs.emailPlaceholder}
                   name="email"
                   onChange={onChange}
                 />
@@ -88,10 +93,10 @@ export const FormModal: FC<Props> = ({ className }) => {
                 <FormInput
                   value={form.messenger}
                   required
-                  title="Мессенджер (обязательно)"
-                  text="Укажите удобный способ связи"
+                  title={content.inputs.messenger}
+                  text={content.inputs.messengerLabel}
                   type="text"
-                  placeholder="WhatsApp, Telegram, WeChat и т.д."
+                  placeholder={content.inputs.messengerPlaceholder}
                   name="messenger"
                   onChange={onChange}
                 />
@@ -101,39 +106,39 @@ export const FormModal: FC<Props> = ({ className }) => {
                 <FormInput
                   value={form.product}
                   required
-                  title="Какой товар вас интересует? (обязательно)"
-                  text="Кратко опишите категорию, примерный объём и требования к продукту."
+                  title={content.inputs.product}
+                  text={content.inputs.productLabel}
                   type="text"
-                  placeholder="Категория товара, примерный объем"
+                  placeholder={content.inputs.productPlaceholder}
                   name="product"
                   onChange={onChange}
                 />
 
                 <RadioButtons
-                  title="Опыт работы с Китаем"
-                  defaultValue="Нет"
+                  title={content.inputs.experience}
+                  defaultValue={content.inputs.experienceValueNo}
                   name="experience"
                   onValueChange={(value) => onRadioChange("experience", value)}
                   radioButtons={[
                     {
                       id: "no",
-                      value: "Нет",
+                      value: content.inputs.experienceValueNo,
                       htmlFor: "no",
-                      label: "Нет",
+                      label: content.inputs.experienceValueNo,
                     },
                     {
                       id: "yes",
-                      value: "Да",
+                      value: content.inputs.experienceValueYes,
                       htmlFor: "yes",
-                      label: "Да",
+                      label: content.inputs.experienceValueYes,
                     },
                   ]}
                 />
 
                 <RadioButtons
-                  title="Годовой оборот вашей компании"
-                  text="Информация поможет нам оценить формат и глубину возможного сотрудничества."
-                  defaultValue="до $700,000"
+                  title={content.inputs.annualTurnover}
+                  text={content.inputs.annualTurnoverLabel}
+                  defaultValue={content.inputs.annualTurnoverValueUpTo}
                   name="annualTurnover"
                   onValueChange={(value) =>
                     onRadioChange("annualTurnover", value)
@@ -141,15 +146,15 @@ export const FormModal: FC<Props> = ({ className }) => {
                   radioButtons={[
                     {
                       id: "up-to-700",
-                      value: "до $700,000",
+                      value: content.inputs.annualTurnoverValueUpTo,
                       htmlFor: "up-to-700",
-                      label: "до $700,000",
+                      label: content.inputs.annualTurnoverValueUpTo,
                     },
                     {
                       id: "from-700",
-                      value: "от $700,000 и выше",
+                      value: content.inputs.annualTurnoverValueFrom,
                       htmlFor: "from-700",
-                      label: "от $700,000 и выше",
+                      label: content.inputs.annualTurnoverValueFrom,
                     },
                   ]}
                 />
@@ -157,17 +162,16 @@ export const FormModal: FC<Props> = ({ className }) => {
                 <div className="flex flex-col gap-3">
                   <div className="flex flex-col gap-1">
                     <span className="text-sm xl:text-base text-black text-left">
-                      Комментарий или вопрос (необязательно)
+                      {content.inputs.comment}
                     </span>
                     <span className="text-xs xl:text-sm font-light text-brownTextColor text-left">
-                      Если есть детали, которые вы хотите уточнить заранее —
-                      напишите здесь.
+                      {content.inputs.commentLabel}
                     </span>
                   </div>
 
                   <Textarea
                     className="text-black placeholder:font-light placeholder:text-xs xl:placeholder:text-sm"
-                    placeholder="Дополнительные вопросы"
+                    placeholder={commentPlaceholderLocalize}
                     name="comment"
                     value={form.comment}
                     onChange={onChange}
@@ -179,12 +183,11 @@ export const FormModal: FC<Props> = ({ className }) => {
 
             <div className="grid grid-cols-1 xl:grid-cols-2 justify-between items-center gap-8 mt-4 xl:mt-8">
               <p className="text-xs xl:text-sm text-brownTextColor font-light text-left max-w-[300px] xl:max-w-full w-full">
-                Далее мы свяжемся с вами, чтобы согласовать время для
-                онлайн-встречи. <span className="font-bold">Напоминаем:</span>{" "}
-                предварительный расчёт и консультация бесплатны для компаний с
-                оборотом от $700,000 в год. Для компаний с меньшим оборотом
-                услуги предварительного просчёта предоставляются на платной
-                основе.
+                {content.modalFooterTitle}
+                <span className="font-bold">
+                  {content.modalFooterPrefix}
+                </span>{" "}
+                {content.modalFooterText}
               </p>
               <Button
                 type="submit"
@@ -192,7 +195,7 @@ export const FormModal: FC<Props> = ({ className }) => {
                 className="w-full bg-blueBg text-white"
                 disabled={isLoading}
               >
-                {isLoading ? <Spinner /> : "Отправить"}
+                {isLoading ? <Spinner /> : content.send}
               </Button>
             </div>
           </form>

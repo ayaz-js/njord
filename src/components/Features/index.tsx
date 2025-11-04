@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { FeaturesDesktop } from "@/components/Features/FeaturesDesktop";
 import { FeaturesMobile } from "@/components/Features/FeaturesMobile";
-import { featuresData } from "@/components/Features/data";
+import { useFeature } from "@/components/Features/useFeature";
 
 export const Features: FC = () => {
   const matches = useMediaQuery("(max-width: 768px)");
@@ -11,6 +11,8 @@ export const Features: FC = () => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => setIsClient(true), []);
+
+  const { featuresData } = useFeature();
 
   return (
     <>
