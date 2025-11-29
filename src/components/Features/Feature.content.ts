@@ -30,8 +30,8 @@ const Feature = {
           en: "Online consultation, market analysis, and purchasing model development",
         }),
         subtext: t({
-          ru: "Онлайн-консультация, анализ рынка, построение закупочной модели",
-          en: "Online consultation, market analysis, and purchasing model development",
+          ru: "Разбираем ваш запрос, оцениваем нишу, изучаем предложения на рынке Китая и рассчитываем предварительный бюджет.",
+          en: "We analyze your request, evaluate the niche, research suppliers in China, and calculate a preliminary budget.",
         }),
       },
       card_2: {

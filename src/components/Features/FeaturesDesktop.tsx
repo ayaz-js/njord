@@ -57,7 +57,7 @@ export const FeaturesDesktop: FC<FeaturesProps> = ({ featuresData }) => {
 
                   <div className="mt-8">
                     <p className="text-white">
-                      {item.text}
+                      {item.text}{" "}
                       <span className="font-light">{item.subtext}</span>
                     </p>
                   </div>

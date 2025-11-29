@@ -8,6 +8,7 @@ import { License } from "@/components/License";
 import { Footer } from "@/components/Footer";
 import { type NextPageIntlayer, IntlayerClientProvider } from "next-intlayer";
 import { IntlayerServerProvider } from "next-intlayer/server";
+import { Video } from "@/components/Video";
 
 export const metadata = {
   title: "Главная — Njord",
@@ -46,6 +47,7 @@ const Home: NextPageIntlayer = async ({ params }) => {
             <AboutUs />
             <Features />
             <Partners />
+            <Video />
             <License />
           </main>
           <Footer />

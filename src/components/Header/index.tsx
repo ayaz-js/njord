@@ -37,7 +37,7 @@ export const Header: FC = () => {
     },
     {
       label: content.video,
-      link: "#",
+      link: "#video",
     },
     {
       label: content.contacts,

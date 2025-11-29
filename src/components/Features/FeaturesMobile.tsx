@@ -55,7 +55,7 @@ export const FeaturesMobile: FC<FeaturesProps> = ({ featuresData }) => {
 
                   <div className="mt-5">
                     <p className="text-white">
-                      {item.text}
+                      {item.text}{" "}
                       <span className="font-light">{item.subtext}</span>
                     </p>
                   </div>
