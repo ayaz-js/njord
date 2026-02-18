@@ -83,7 +83,7 @@ export const FooterDesktop: FC<Props> = ({ label }) => {
             </Link>
           </div>
 
-          <FormModal label={label} className=" !rounded-2xl !text-xs" />
+          <FormModal label={label} className="!rounded-2xl !text-xs" />
         </div>
       </div>
     </footer>
