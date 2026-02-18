@@ -11,7 +11,7 @@ const HeaderDesktop: FC<HeaderProps> = ({ headerMenuItems, label }) => {
       <div className="max-w-baseWidth w-full mx-auto flex justify-between items-center px-4 xl:px-0">
         <div className="flex gap-8 items-center">
           <Link href="/" aria-label="Go to homepage">
-            <Logo className="max-w-[184] w-full" />
+            <Logo className="max-w-[184px] w-full" />
           </Link>
           <ul className="flex gap-6">
             {headerMenuItems.map((item) => (
