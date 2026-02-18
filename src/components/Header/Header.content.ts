@@ -7,21 +7,17 @@ const HeaderContent = {
       ru: "О компании",
       en: "About us",
     }),
-    howWeWork: t({
-      ru: "Как мы работаем",
-      en: "How we work",
-    }),
-    ourPartners: t({
-      ru: "Наши партнёры",
-      en: "Our partners",
-    }),
-    video: t({
-      ru: "Видео",
-      en: "Video",
+    services: t({
+      ru: "Услуги",
+      en: "Services",
     }),
     contacts: t({
       ru: "Контакты",
       en: "Contacts",
+    }),
+    submitRequest: t({
+      ru: "Заказать бесплатную консультацию",
+      en: "Request a Free Consultation",
     }),
   },
 } satisfies Dictionary;

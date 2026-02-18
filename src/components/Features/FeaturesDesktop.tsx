@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { Box } from "@/components/icons";
-import { FeaturesProps } from "@/components/Features/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useIntlayer } from "next-intlayer";
+import { ContactPanel } from "@/components/ContactPanel";
 
-export const FeaturesDesktop: FC<FeaturesProps> = ({ featuresData }) => {
+export const FeaturesDesktop: FC = () => {
   const content = useIntlayer("feature");
 
   return (
@@ -19,12 +19,6 @@ export const FeaturesDesktop: FC<FeaturesProps> = ({ featuresData }) => {
               {content.work}
             </span>
           </h2>
-          <div className="max-w-[600px] w-full mt-6">
-            <p className="text-white">{content.weTakeFullControl}</p>
-            <p className="font-light text-white">
-              {content.fromStrategyAndNegotiations}
-            </p>
-          </div>
         </div>
 
         <Swiper
@@ -42,30 +36,45 @@ export const FeaturesDesktop: FC<FeaturesProps> = ({ featuresData }) => {
           }}
           className="!p-12 w-full"
         >
-          {featuresData.map((item) => (
-            <SwiperSlide key={item.sum}>
-              <div className="flex flex-col justify-between backdrop-blur-xl bg-white/10 rounded-2xl min-h-[474px] h-full">
+          {content.cards.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex flex-col justify-between backdrop-blur-xl bg-white/10 rounded-2xl min-h-[500px] h-full">
                 <div className="p-8">
-                  <h2 className="text-white text-2xl flex items-center gap-1 h-16">
+                  <h2 className="text-white text-xl flex  gap-1 h-16">
                     {item.title}
                     <span className="text-4xl text-skyblueTextColor">
-                      {item.sum}
+                      0{index + 1}
                     </span>
                   </h2>
 
-                  <div className="mt-20">{item.icon}</div>
+                  <div className="mt-20">
+                    <svg
+                      width="67"
+                      height="66"
+                      viewBox="0 0 67 66"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      {item.icon}
+                    </svg>
+                  </div>
 
                   <div className="mt-8">
-                    <p className="text-white">
-                      {item.text}{" "}
-                      <span className="font-light">{item.subtext}</span>
-                    </p>
+                    <p className="text-xl font-light text-white">{item.text}</p>
                   </div>
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div className="max-w-baseWidth w-full mx-auto mt-10">
+        <div className="border border-black rounded-2xl py-4 px-4 xl:px-6 w-full">
+          <p className="text-xs xl:text-sm text-center text-blueTextColor">
+            {content.serviceDeliveryOptions}
+          </p>
+        </div>
+        <ContactPanel />
       </div>
     </section>
   );

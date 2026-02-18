@@ -15,7 +15,7 @@ const HeroMobile = dynamic(() => import("@/components/Hero/HeroMobile"), {
 });
 
 export const Hero: FC = () => {
-  const matches = useMediaQuery("(max-width: 568px)");
+  const matches = useMediaQuery("(max-width: 768px)");
 
   return (
     <>

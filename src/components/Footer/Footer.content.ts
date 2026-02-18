@@ -11,6 +11,10 @@ const FooterContent = {
       ru: "Наш офис в Китае:",
       en: "Our office in China:",
     }),
+    submitRequest: t({
+      ru: "Заказать бесплатную консультацию",
+      en: "Request a Free Consultation",
+    }),
   },
 } satisfies Dictionary;
 

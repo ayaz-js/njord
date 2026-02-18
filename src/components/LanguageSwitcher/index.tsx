@@ -27,7 +27,7 @@ export const LanguageSwitcher: FC<Props> = ({ className }) => {
           hrefLang={localeItem}
           onClick={() => setLocaleCookie(localeItem)}
           className={clsx(
-            "flex items-center justify-center w-full h-10 transition-colors text-xs xl:text-sm font-medium",
+            "flex items-center justify-center w-full h-10 transition-colors text-xs xl:text-sm font-medium px-4",
             locale === localeItem
               ? "bg-blueBg text-white"
               : "hover:bg-blueBg hover:text-white",

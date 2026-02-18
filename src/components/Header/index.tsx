@@ -28,16 +28,8 @@ export const Header: FC = () => {
       link: "#about-us",
     },
     {
-      label: content.howWeWork,
-      link: "#features",
-    },
-    {
-      label: content.ourPartners,
-      link: "#partners",
-    },
-    {
-      label: content.video,
-      link: "#video",
+      label: content.services,
+      link: "#services",
     },
     {
       label: content.contacts,
@@ -47,8 +39,18 @@ export const Header: FC = () => {
 
   return (
     <>
-      {!matches && <HeaderDesktop headerMenuItems={headerMenuItems} />}
-      {matches && <HeaderMobile headerMenuItems={headerMenuItems} />}
+      {!matches && (
+        <HeaderDesktop
+          label={content.submitRequest}
+          headerMenuItems={headerMenuItems}
+        />
+      )}
+      {matches && (
+        <HeaderMobile
+          label={content.submitRequest}
+          headerMenuItems={headerMenuItems}
+        />
+      )}
     </>
   );
 };

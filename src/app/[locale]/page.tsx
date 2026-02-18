@@ -3,12 +3,12 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { AboutUs } from "@/components/AboutUs";
 import { Features } from "@/components/Features";
-import { Partners } from "@/components/Partners";
 import { License } from "@/components/License";
 import { Footer } from "@/components/Footer";
 import { type NextPageIntlayer, IntlayerClientProvider } from "next-intlayer";
 import { IntlayerServerProvider } from "next-intlayer/server";
 import { Video } from "@/components/Video";
+import { Services } from "@/components/Services";
 
 export const metadata = {
   title: "Главная — Njord",
@@ -45,8 +45,8 @@ const Home: NextPageIntlayer = async ({ params }) => {
           <main id="page-wrap">
             <Hero />
             <AboutUs />
+            <Services />
             <Features />
-            <Partners />
             <Video />
             <License />
           </main>

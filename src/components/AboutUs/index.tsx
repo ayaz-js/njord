@@ -1,6 +1,5 @@
 "use client";
 import { FC } from "react";
-import { Patterns, CompassBlack } from "@/components/icons";
 import Image from "next/image";
 import { useIntlayer } from "next-intlayer";
 
@@ -10,13 +9,7 @@ export const AboutUs: FC = () => {
   return (
     <section className="pt-12 xl:pt-20" id="about-us">
       <div className="max-w-baseWidth w-full mx-auto px-4 xl:px-0">
-        <div className="flex justify-between items-center">
-          <CompassBlack />
-          <Patterns className="max-w-36 w-full xl:max-w-full" />
-          <CompassBlack />
-        </div>
-
-        <div className="mt-8 2xl:mt-20">
+        <div>
           <h2 className="text-xl xl:text-5xl text-center text-blueTextColor">
             {content.title}
           </h2>
@@ -33,7 +26,6 @@ export const AboutUs: FC = () => {
             <h2>{content.whoAreWe}</h2>
             <p className="mt-3 2xl:mt-6 text-xs lg:text-base 2xl:text-xl font-light flex flex-col max-w-2xl">
               {content.weAre}
-              <span>{content.independent}</span>
             </p>
 
             <div className="mt-6 2xl:mt-12">
@@ -43,28 +35,6 @@ export const AboutUs: FC = () => {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="mt-8 2xl:mt-20 flex flex-col-reverse lg:grid lg:grid-cols-2 gap-4 2xl:gap-14 items-center content-center">
-          <div>
-            <h2>{content.ourApproach}</h2>
-            <p className="mt-3 2xl:mt-6 text-xs lg:text-base 2xl:text-xl font-light flex flex-col max-w-2xl">
-              {content.ourApproachText}
-            </p>
-
-            <div className="mt-6 2xl:mt-12">
-              <h2>{content.theCooperationProcess}</h2>
-              <p className="mt-3 2xl:mt-6 text-xs lg:text-base 2xl:text-xl font-light max-w-2xl">
-                {content.theCooperationProcessText}
-              </p>
-            </div>
-          </div>
-          <Image
-            src="/images/about-us-pic.png"
-            width="664"
-            height="374"
-            alt=""
-          />
         </div>
       </div>
     </section>

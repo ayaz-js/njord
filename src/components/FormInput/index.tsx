@@ -4,7 +4,6 @@ import { IntlayerNode } from "next-intlayer";
 
 interface Props {
   title: IntlayerNode<string>;
-  text: IntlayerNode<string>;
   type: string;
   placeholder: IntlayerNode<string>;
   required?: boolean;
@@ -24,7 +23,6 @@ function toStringNode(node: IntlayerNode<string>): string {
 
 export const FormInput: FC<Props> = ({
   title,
-  text,
   type,
   placeholder,
   required,
@@ -37,9 +35,6 @@ export const FormInput: FC<Props> = ({
       <div className="flex flex-col gap-1">
         <span className="text-sm xl:text-base text-black text-left">
           {title}
-        </span>
-        <span className="text-xs xl:text-sm font-light text-brownTextColor text-left">
-          {text}
         </span>
       </div>
       <Input

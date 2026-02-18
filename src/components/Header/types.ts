@@ -6,4 +6,5 @@ export interface HeaderProps {
     link?: string;
   }[];
   handleOnOpen?: () => void;
+  label?: IntlayerNode<string>;
 }

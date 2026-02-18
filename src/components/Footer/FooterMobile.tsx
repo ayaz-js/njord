@@ -1,9 +1,17 @@
 import { FC } from "react";
 import Link from "next/link";
-import { useIntlayer } from "next-intlayer";
+import { IntlayerNode, useIntlayer } from "next-intlayer";
+import { Email, Telegram, Wechat, Whatsapp } from "@/components/icons";
+import { FormModal } from "@/components/FormModal";
 
-export const FooterMobile: FC = () => {
+interface Props {
+  label: IntlayerNode<string>;
+}
+
+export const FooterMobile: FC<Props> = ({ label }) => {
   const content = useIntlayer("footer");
+
+  console.log(label);
 
   return (
     <footer className="mt-12 bg-[#d0d6de]" id="contacts">
@@ -50,13 +58,36 @@ export const FooterMobile: FC = () => {
 
         <div className="w-full h-px bg-[#192E41] opacity-10" />
 
-        <div className="flex justify-between items-center">
-          <p className="text-[10px] font-light">
-            © {new Date().getFullYear()}
-          </p>
-          <p className="max-w-56 w-full text-[10px] font-light text-right">
-            NJORD INTERNATIONAL TRADE CO., LTD. 尼奥尔德（厦门）国际贸易有限公司
-          </p>
+        <div className="flex flex-col justify-between items-center gap-6">
+          <FormModal label={label} className="!rounded-2xl !text-xs" />
+
+          <div className="flex justify-center items-center gap-6">
+            <Link href="/">
+              <Whatsapp />
+            </Link>
+
+            <Link href="/">
+              <Telegram />
+            </Link>
+
+            <Link href="/">
+              <Wechat />
+            </Link>
+
+            <Link href="/">
+              <Email />
+            </Link>
+          </div>
+
+          <div className="flex items-center justify-between w-full">
+            <p className="text-[10px] font-light">
+              © {new Date().getFullYear()}
+            </p>
+            <p className="max-w-56 w-full text-xs font-light text-right">
+              NJORD INTERNATIONAL TRADE CO., LTD.
+              尼奥尔德（厦门）国际贸易有限公司
+            </p>
+          </div>
         </div>
       </div>
     </footer>
