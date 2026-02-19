@@ -11,8 +11,6 @@ interface Props {
 export const FooterMobile: FC<Props> = ({ label }) => {
   const content = useIntlayer("footer");
 
-  console.log(label);
-
   return (
     <footer className="mt-12 bg-[#d0d6de]" id="contacts">
       <div className="max-w-baseWidth w-full mx-auto py-14 flex flex-col gap-6 px-4">
@@ -62,11 +60,11 @@ export const FooterMobile: FC<Props> = ({ label }) => {
           <FormModal label={label} className="!rounded-2xl !text-xs" />
 
           <div className="flex justify-center items-center gap-6">
-            <Link href="/">
+            <Link href="https://wa.me/8613660884790">
               <Whatsapp />
             </Link>
 
-            <Link href="/">
+            <Link href="https://t.me/+8613660884790">
               <Telegram />
             </Link>
 
@@ -74,7 +72,7 @@ export const FooterMobile: FC<Props> = ({ label }) => {
               <Wechat />
             </Link>
 
-            <Link href="/">
+            <Link href="mailto:njord.madeinchina@gmail.com">
               <Email />
             </Link>
           </div>

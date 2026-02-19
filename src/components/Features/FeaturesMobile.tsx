@@ -10,7 +10,7 @@ export const FeaturesMobile: FC = () => {
 
   return (
     <section className="pt-12" id="features">
-      <div className="max-w-baseWidth mx-auto bg-[url('/images/work-bg-mobile.png')] bg-cover bg-no-repeat w-full min-h-screen pb-6 sm:pb-12 px-4">
+      <div className="max-w-baseWidth mx-auto bg-[url('/images/work-bg-mobile.png')] bg-cover bg-no-repeat w-full pb-6 sm:pb-12 px-4">
         <div className="py-4">
           <h2 className="text-xl text-white flex flex-col gap-2">
             {content.titlePrefix}

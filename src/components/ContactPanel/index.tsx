@@ -15,15 +15,15 @@ export const ContactPanel: FC = () => {
         <div>
           <p className="flex flex-col items-center text-center text-sm text-blueTextColor">
             {content.title}
-            <Link href="/">+86 136 6088 4790</Link>
+            <Link href="tel:+8613660884790">+86 136 6088 4790</Link>
           </p>
 
           <div className="flex justify-center items-center gap-6 mt-4">
-            <Link href="/">
+            <Link href="https://wa.me/8613660884790">
               <Whatsapp />
             </Link>
 
-            <Link href="/">
+            <Link href="https://t.me/+8613660884790">
               <Telegram />
             </Link>
 
@@ -31,7 +31,7 @@ export const ContactPanel: FC = () => {
               <Wechat />
             </Link>
 
-            <Link href="/">
+            <Link href="mailto:njord.madeinchina@gmail.com">
               <Email />
             </Link>
           </div>

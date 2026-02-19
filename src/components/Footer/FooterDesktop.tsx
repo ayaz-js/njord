@@ -66,11 +66,11 @@ export const FooterDesktop: FC<Props> = ({ label }) => {
           </div>
 
           <div className="flex justify-center items-center gap-6">
-            <Link href="/">
+            <Link href="https://wa.me/8613660884790">
               <Whatsapp />
             </Link>
 
-            <Link href="/">
+            <Link href="https://t.me/+8613660884790">
               <Telegram />
             </Link>
 
@@ -78,7 +78,7 @@ export const FooterDesktop: FC<Props> = ({ label }) => {
               <Wechat />
             </Link>
 
-            <Link href="/">
+            <Link href="mailto:njord.madeinchina@gmail.com">
               <Email />
             </Link>
           </div>
