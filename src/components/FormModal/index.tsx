@@ -20,9 +20,10 @@ import { FieldLegend, FieldSet } from "@/components/ui/field";
 interface Props {
   className?: string;
   label?: IntlayerNode<string>;
+  handleClose?: () => void;
 }
 
-export const FormModal: FC<Props> = ({ className, label }) => {
+export const FormModal: FC<Props> = ({ className, label, handleClose }) => {
   const content = useIntlayer("form");
 
   const { locale } = useLocale();
@@ -68,6 +69,7 @@ export const FormModal: FC<Props> = ({ className, label }) => {
   return (
     <Dialog>
       <DialogTrigger
+        onClick={handleClose}
         className={clsx(
           "max-w-full xl:max-w-[534px] w-full !p-3 bg-blueBg text-xs lg:text-xl text-center text-white rounded-xl",
           className,
