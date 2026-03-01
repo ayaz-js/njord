@@ -10,6 +10,9 @@ export const useSubmit = () => {
     "https://script.google.com/macros/s/AKfycbxNhL4YclZI3auzd3sfDxV7dk_GZ9hH97aeP9Jo9OXg3H7kqnsRwZyfGe4nf0tjLaxt/exec";
 
   const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(prevState => !prevState);
 
   const [form, setForm] = useState({
     services: [] as string[],
@@ -68,6 +71,7 @@ export const useSubmit = () => {
       })
 
       resetForm();
+      setOpen(false);
     } catch (error) {
       console.log(error);
       toast.error(content.errorTitle, {
@@ -84,5 +88,7 @@ export const useSubmit = () => {
     onCheckboxChange,
     onChange,
     onSubmit,
+    open,
+    handleOpen
   };
 };

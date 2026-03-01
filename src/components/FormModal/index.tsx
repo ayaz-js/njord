@@ -31,7 +31,7 @@ export const FormModal: FC<Props> = ({ className, label, handleClose }) => {
   const commentPlaceholderLocalize =
     locale === "en" ? "Additional questions" : "Дополнительные вопросы";
 
-  const { form, isLoading, onCheckboxChange, onChange, onSubmit } = useSubmit();
+  const { form, isLoading, onCheckboxChange, onChange, onSubmit, open, handleOpen } = useSubmit();
 
   const servicesList = [
     {
@@ -67,7 +67,7 @@ export const FormModal: FC<Props> = ({ className, label, handleClose }) => {
   ];
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={handleOpen}>
       <DialogTrigger
         onClick={handleClose}
         className={clsx(
