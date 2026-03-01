@@ -1,7 +1,11 @@
 "use client";
 import React, { useState } from "react";
+import { toast } from "sonner"
+import { useIntlayer } from "next-intlayer";
 
 export const useSubmit = () => {
+  const content = useIntlayer("form");
+
   const BASE_URL =
     "https://script.google.com/macros/s/AKfycbxNhL4YclZI3auzd3sfDxV7dk_GZ9hH97aeP9Jo9OXg3H7kqnsRwZyfGe4nf0tjLaxt/exec";
 
@@ -29,10 +33,6 @@ export const useSubmit = () => {
     setForm((state) => ({ ...state, [event.target.name]: event.target.value }));
   };
 
-  // const onRadioChange = (name: string, value: string) => {
-  //   setForm((state) => ({ ...state, [name]: value }));
-  // };
-
   const onCheckboxChange = (
     value: string,
     checked: boolean | "indeterminate",
@@ -46,24 +46,36 @@ export const useSubmit = () => {
     }));
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
 
-    const _formData = new FormData();
+    try {
+      const _formData = new FormData();
 
-    form.services.forEach((service) => _formData.append("Услуги", service));
-    _formData.append("Имя", form.name);
-    _formData.append("Месседжер", form.messenger);
-    _formData.append("Дополнительные вопросы", form.comment);
+      form.services.forEach((service) => _formData.append("Услуги", service));
+      _formData.append("Имя", form.name);
+      _formData.append("Месседжер", form.messenger);
+      _formData.append("Дополнительные вопросы", form.comment);
 
-    fetch(BASE_URL, {
-      method: "POST",
-      body: _formData,
-    })
-      .then(() => resetForm())
-      .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
+      await fetch(BASE_URL, {
+        method: "POST",
+        body: _formData,
+      });
+
+      toast.success(content.successTitle, {
+        description: content.successDescription
+      })
+
+      resetForm();
+    } catch (error) {
+      console.log(error);
+      toast.error(content.errorTitle, {
+        description: content.errorDescription
+      })
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return {

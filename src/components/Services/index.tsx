@@ -15,7 +15,7 @@ export const Services: FC = () => {
   const content = useIntlayer("services");
 
   return (
-    <section className="pt-12 xl:pt-20">
+    <section id="services" className="pt-12 xl:pt-20">
       <div className="max-w-baseWidth w-full mx-auto px-4 xl:px-0">
         <h2 className="text-xl xl:text-5xl text-center text-blueTextColor">
           {content.title}

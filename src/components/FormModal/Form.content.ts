@@ -77,6 +77,22 @@ const FormContent = {
       ru: "Отправить",
       en: "Send",
     }),
+    successTitle: t({
+      ru: "Готово! Ваша заявка отправлена 🚀",
+      en: "All set! Your request has been sent 🚀",
+    }),
+    successDescription: t({
+      ru: "Скоро свяжемся с вами.",
+      en: "We’ll be in touch soon.",
+    }),
+    errorTitle: t({
+      ru: "Упс! Что-то пошло не так.",
+      en: "Oops! Something went wrong.",
+    }),
+    errorDescription: t({
+      ru: "Попробуйте ещё раз 🙏",
+      en: "Please try again 🙏",
+    }),
   },
 } satisfies Dictionary;
 
