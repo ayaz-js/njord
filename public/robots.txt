@@ -7,8 +7,9 @@ Disallow: /login/
 Disallow: /private/
 Disallow: /*?*
 
-Crawl-delay: 10
+Sitemap: https://njordchina.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 5
+Disallow: /_next/
+Disallow: /api/
