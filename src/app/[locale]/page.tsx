@@ -9,29 +9,45 @@ import { type NextPageIntlayer, IntlayerClientProvider } from "next-intlayer";
 import { IntlayerServerProvider } from "next-intlayer/server";
 import { Video } from "@/components/Video";
 import { Services } from "@/components/Services";
+import type { LocalPromiseParams } from "next-intlayer";
+import { Metadata } from "next";
+import { getIntlayer } from "intlayer";
 
-export const metadata = {
-  title: "Главная — Njord",
-  description:
-    "Добро пожаловать на Njord — работая с нами, Китай работает на вас.",
-  keywords: ["Njord", "Китай", "импорт", "поставки", "закупки"],
-  openGraph: {
-    title: "Njord — Мы — ваши люди в Китае.",
-    description:
-      "Независимые представители, которые заменят вам отдел закупок.",
-    url: "https://njord-five.vercel.app/",
-    siteName: "Njord",
-    locale: "ru_RU",
-    type: "website",
-    images: [
-      {
-        url: "https://njord-five.vercel.app/images/preview.png",
-        width: 1200,
-        height: 630,
-        alt: "Njord — ваши люди в Китае",
+export const generateMetadata = async ({
+  params,
+}: LocalPromiseParams): Promise<Metadata> => {
+  const { locale } = await params;
+
+  const content = getIntlayer("metadata", locale);
+
+  return {
+    metadataBase: new URL("https://njordchina.com"),
+    title: content.title,
+    description: content.description,
+    keywords: content.keywords,
+    alternates: {
+      canonical: "/",
+      languages: {
+        "ru-RU": "/ru",
+        "en-US": "/en",
       },
-    ],
-  },
+    },
+    openGraph: {
+      title: content.title,
+      description: content.description,
+      url: "https://njordchina.com",
+      siteName: "Njord China",
+      images: [
+        {
+          url: "/images/preview.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: locale,
+      type: "website",
+    },
+  };
 };
 
 const Home: NextPageIntlayer = async ({ params }) => {
