@@ -38,11 +38,11 @@ const HeaderDesktop: FC<HeaderProps> = ({ headerMenuItems, label }) => {
             </Link>
           </div>
           <div className="flex items-center gap-2">
-            <Link href="/">
+            <Link href="https://wa.me/8613660884790">
               <Whatsapp />
             </Link>
 
-            <Link href="/">
+            <Link href="https://t.me/+8613660884790">
               <Telegram />
             </Link>
           </div>
