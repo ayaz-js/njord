@@ -8,8 +8,8 @@ const metadataContent: Dictionary = {
       en: "Njord China — Logistics and Ocean Freight from China",
     }),
     description: t({
-      ru: "Полный комплекс логистических услуг: морские, авиа и ж/д перевозки из Китая.",
-      en: "Full range of logistics services: sea, air and rail freight from China.",
+      ru: "Полный комплекс услуг: аудит фабрик, контроль качества, поиск производителей, морские, авиа и ж/д перевозки из Китая. Подробнее на нашем сайте njordchina.com, наши контакты +86 136 6088 4790 njord.madeinchina@gmail.com",
+      en: "Full range of services: factory audit, quality control, supplier search, sea, air and rail freight from China. More details on our website njordchina.com, our contacts +86 136 6088 4790 njord.madeinchina@gmail.com",
     }),
     keywords: t({
       ru: [

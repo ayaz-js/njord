@@ -16,9 +16,9 @@ const HeroDesktop: FC = () => {
           alt=""
         />
         <div className="hidden lg:flex flex-col absolute top-[10%] left-[4%] justify-between h-[80%]">
-          <p className="text-4xl text-white max-w-[584px] w-full">
+          <h1 className="text-4xl text-white max-w-[584px] w-full">
             {content.title}
-          </p>
+          </h1>
 
           <FormModal className="bg-white !max-w-xs !w-full !h-14 !text-center !text-black" />
         </div>
