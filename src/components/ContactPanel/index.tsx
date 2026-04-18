@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useIntlayer } from "next-intlayer";
 import Link from "next/link";
-import { Telegram, Whatsapp, Email, Wechat } from "@/components/icons";
+import { Telegram, Whatsapp, Email } from "@/components/icons";
 import { FormModal } from "@/components/FormModal";
 
 export const ContactPanel: FC = () => {

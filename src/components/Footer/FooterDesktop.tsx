@@ -2,7 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 import { IntlayerNode, useIntlayer } from "next-intlayer";
 import { FormModal } from "@/components/FormModal";
-import { Email, Telegram, Wechat, Whatsapp } from "@/components/icons";
+import { Email, Telegram, Whatsapp } from "@/components/icons";
 
 interface Props {
   label: IntlayerNode<string>;
