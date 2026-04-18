@@ -27,10 +27,6 @@ export const ContactPanel: FC = () => {
               <Telegram />
             </Link>
 
-            <Link href="/">
-              <Wechat />
-            </Link>
-
             <Link href="mailto:njord.madeinchina@gmail.com">
               <Email />
             </Link>

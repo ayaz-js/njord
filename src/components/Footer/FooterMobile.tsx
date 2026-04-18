@@ -22,7 +22,7 @@ export const FooterMobile: FC<Props> = ({ label }) => {
           <div className="flex flex-col gap-4">
             <p className="text-base">{content.ourOffice}</p>
             <p className="text-xs text-brownTextColor font-light">
-              厦门市海沧区新景西里341号301室
+              广州市番禺区长隆华润悦府一期4栋1604
             </p>
           </div>
           <div className="flex flex-col gap-4">
@@ -66,10 +66,6 @@ export const FooterMobile: FC<Props> = ({ label }) => {
 
             <Link href="https://t.me/+8613660884790">
               <Telegram />
-            </Link>
-
-            <Link href="/">
-              <Wechat />
             </Link>
 
             <Link href="mailto:njord.madeinchina@gmail.com">
