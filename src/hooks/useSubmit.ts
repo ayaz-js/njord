@@ -1,34 +1,35 @@
 "use client";
 import React, { useState } from "react";
-import { toast } from "sonner"
+import { toast } from "sonner";
 import { useIntlayer } from "next-intlayer";
+
+const BASE_URL =
+  "https://script.google.com/macros/s/AKfycbxNhL4YclZI3auzd3sfDxV7dk_GZ9hH97aeP9Jo9OXg3H7kqnsRwZyfGe4nf0tjLaxt/exec";
+
+type FormState = {
+  services: string[];
+  name: string;
+  messenger: string;
+  comment: string;
+};
+
+const initialForm: FormState = {
+  services: [],
+  name: "",
+  messenger: "",
+  comment: "",
+};
 
 export const useSubmit = () => {
   const content = useIntlayer("form");
 
-  const BASE_URL =
-    "https://script.google.com/macros/s/AKfycbxNhL4YclZI3auzd3sfDxV7dk_GZ9hH97aeP9Jo9OXg3H7kqnsRwZyfGe4nf0tjLaxt/exec";
-
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
+  const [form, setForm] = useState<FormState>(initialForm);
 
-  const handleOpen = () => setOpen(prevState => !prevState);
+  const handleOpen = () => setOpen((prev) => !prev);
 
-  const [form, setForm] = useState({
-    services: [] as string[],
-    name: "",
-    messenger: "",
-    comment: "",
-  });
-
-  const resetForm = () => {
-    setForm({
-      services: [],
-      name: "",
-      messenger: "",
-      comment: "",
-    });
-  };
+  const resetForm = () => setForm(initialForm);
 
   const onChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -54,29 +55,26 @@ export const useSubmit = () => {
     setIsLoading(true);
 
     try {
-      const _formData = new FormData();
+      const formData = new FormData();
 
-      form.services.forEach((service) => _formData.append("Услуги", service));
-      _formData.append("Имя", form.name);
-      _formData.append("Месседжер", form.messenger);
-      _formData.append("Дополнительные вопросы", form.comment);
+      form.services.forEach((service) => formData.append("Услуги", service));
+      formData.append("Имя", form.name);
+      formData.append("Месседжер", form.messenger);
+      formData.append("Дополнительные вопросы", form.comment);
 
-      await fetch(BASE_URL, {
-        method: "POST",
-        body: _formData,
-      });
+      await fetch(BASE_URL, { method: "POST", body: formData });
 
       toast.success(content.successTitle, {
-        description: content.successDescription
-      })
+        description: content.successDescription,
+      });
 
       resetForm();
       setOpen(false);
     } catch (error) {
       console.log(error);
       toast.error(content.errorTitle, {
-        description: content.errorDescription
-      })
+        description: content.errorDescription,
+      });
     } finally {
       setIsLoading(false);
     }
@@ -89,6 +87,6 @@ export const useSubmit = () => {
     onChange,
     onSubmit,
     open,
-    handleOpen
+    handleOpen,
   };
 };
